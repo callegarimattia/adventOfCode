@@ -15,22 +15,13 @@ def get_diff(h, q):
         return get_diff(ds, q)
 
 
-def calc(h, q):
+def calc(h, q, part2):
     ds, q = get_diff(h, q)
     s = 0
+    q = q[::-1] if part2 else q
     for t in q:
-        s += t[-1]
-    s += h[-1]
-    return s
-
-
-def calc2(h, q):
-    ds, q = get_diff(h, q)
-    s = 0
-    for t in q[::-1]:
-        s = t[0] - s
-        print(s, t)
-    s = h[0] - s
+        s = t[0] - s if part2 else s + t[-1]
+    s = h[0] - s if part2 else s + h[-1]
     return s
 
 
@@ -38,7 +29,7 @@ def solve(part2):
     s = 0
     for h in H:
         q = []
-        s += calc(h, q) if not part2 else calc2(h, q)
+        s += calc(h, q, part2)
     return s
 
 
