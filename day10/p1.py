@@ -1,5 +1,3 @@
-from termcolor import colored as cl
-
 # up recursion limit
 from sys import setrecursionlimit
 
@@ -93,7 +91,6 @@ def solve2():
     BIG = [[0 for j in range(len(G[0]) * 3)] for i in range(len(G) * 3)]
     lay_pipe(BIG, G, S)
     V = [[0 for j in range(len(BIG[i]))] for i in range(len(BIG))]
-    # corners
     Q = [
         (0, 0),
         (len(BIG) - 1, 0),
