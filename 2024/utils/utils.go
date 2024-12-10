@@ -59,8 +59,8 @@ func ToInts(ss []string) []int {
 }
 
 func Pop[T comparable](l *[]T, i int) (T, bool) {
-    n := len(*l)
-	if i < 0 || i > n{
+	n := len(*l)
+	if i < 0 || i > n {
 		return *new(T), false
 	}
 	x := (*l)[i]
