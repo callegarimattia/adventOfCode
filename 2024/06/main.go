@@ -12,6 +12,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer fp.Close()
 	input := processInput(fp)
 	grid1 := deepCopy(input.Grid)
 	count := walk(grid1, input.Pos, Dir{0, -1}, make(map[Pos]struct{}))
